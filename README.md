@@ -36,7 +36,8 @@ function chunk_scan.ores:v1/api/register_ore
     data modify storage chunk_scan.ores:registry input set value {dimension:"minecraft:overworld", biomes:["minecraft:plains", "minecraft:desert", ...], biome_blacklist:0b}
 	
   Output:
-    #registry.result_id chunk_scan.ores.data: Returns -1 if registering ore failed. Otherwise, returns generated ore reg ID num.
+    #registry.result_id chunk_scan.ores.data: Returns -1 if registering ore failed.
+	Otherwise, returns generated ore reg ID num.
     Save this number to a score. You will need to later to generate your ore 
     Example: scoreboard players operation <my_ore> <my_objective> = #registry.result_id chunk_scan.ores.data 
 ```
@@ -48,14 +49,15 @@ Functions tags are called by ChunkScan.Ores to inform you an event has happened,
 function #chunk_scan.ores:v1/place_ore
   Executed at the location the ore will be placed.
   Input:
-    #gen.id chunk_scan.ores.data -> id of ore to generate. If the id you received from registering you ore matches, place it.
+    #gen.id chunk_scan.ores.data -> id of ore to generate. If the id you received
+	from registering your ore matches, place it.
     Example: execute if score <my_ore> <my_objective> = #gen.id chunk_scan.ores.data run setblock ~ ~ ~ minecraft:dirt
 ```
 
 ```
 function #chunk_scan.ores:v1/custom_biomes
-  Executed at the location the ore vein will be placed. Check if the location matches the biome (or even other restrictions),
-  then set the output so ChunkScan can identify the biome.
+  Executed at the location the ore vein will be placed. Check if the location matches the
+  biome (or even other restrictions), then set the output so ChunkScan can identify the biome.
   
   Output:
     storage chunk_scan.ores:generation chunk.biome -> assign to your biome id if the location matches, otherwise make no change.
@@ -67,5 +69,5 @@ function #chunk_scan.ores:v1/custom_biomes
 1. Install [ChunkScan](https://github.com/ICY105/ChunkScan) in your datapack, following its install directions
 2. Copy the `ChunkScan.Ores/data/chunk_scan.ores` folder into your data pack
 3. Merge the contents of `ChunkScan.Ores/data/chunk_scan/tags/functions/v2/generate.json` into the file `<your_datapack>/data/chunk_scan/tags/functions/v2/generate.json`
-4. Merge the contents of `ChunkScan.Ores/data/load/tags/functions/load.json` into the file `<your_datapack>/data/load/tags/functions/load.json`
+4. Merge the file contents of `ChunkScan.Ores/data/load/tags/functions/*` into the files `<your_datapack>/data/load/tags/functions/*`
 5. Implement the API as described above.
