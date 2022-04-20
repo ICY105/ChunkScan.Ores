@@ -37,7 +37,7 @@ function chunk_scan.ores:v1/api/register_ore
 	
   Output:
     #registry.result_id chunk_scan.ores.data: Returns -1 if registering ore failed.
-	Otherwise, returns generated ore reg ID num.
+    Otherwise, returns generated ore reg ID num.
     Save this number to a score. You will need to later to generate your ore 
     Example: scoreboard players operation <my_ore> <my_objective> = #registry.result_id chunk_scan.ores.data 
 ```
@@ -50,7 +50,7 @@ function #chunk_scan.ores:v1/place_ore
   Executed at the location the ore will be placed.
   Input:
     #gen.id chunk_scan.ores.data -> id of ore to generate. If the id you received
-	from registering your ore matches, place it.
+    from registering your ore matches, place it.
     Example: execute if score <my_ore> <my_objective> = #gen.id chunk_scan.ores.data run setblock ~ ~ ~ minecraft:dirt
 ```
 
@@ -69,5 +69,5 @@ function #chunk_scan.ores:v1/custom_biomes
 1. Install [ChunkScan](https://github.com/ICY105/ChunkScan) in your datapack, following its install directions
 2. Copy the `ChunkScan.Ores/data/chunk_scan.ores` folder into your data pack
 3. Merge the contents of `ChunkScan.Ores/data/chunk_scan/tags/functions/v2/generate.json` into the file `<your_datapack>/data/chunk_scan/tags/functions/v2/generate.json`
-4. Merge the file contents of `ChunkScan.Ores/data/load/tags/functions/*` into the files `<your_datapack>/data/load/tags/functions/*`
+4. Merge the file contents of `ChunkScan.Ores/data/load/tags/functions/*` into the files at `<your_datapack>/data/load/tags/functions/*`
 5. Implement the API as described above.
