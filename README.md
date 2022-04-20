@@ -19,7 +19,7 @@ chunk_scan.ores.data
 Function calls are called by you to trigger certian events or features.
 
 ```
-function chubk_scan.ores:v1/api/register_ore
+function chunk_scan.ores:v1/api/register_ore
   Call to add an ore to the registry.
   
   Input:
@@ -37,8 +37,8 @@ function chubk_scan.ores:v1/api/register_ore
 	
   Output:
     #registry.result_id chunk_scan.ores.data: Returns -1 if registering ore failed. Otherwise, returns generated ore reg ID num.
-	Save this number to a score. You will need to later to generate your ore 
-	Example: scoreboard players operation <my_ore> <my_objective> = #registry.result_id chunk_scan.ores.data 
+    Save this number to a score. You will need to later to generate your ore 
+    Example: scoreboard players operation <my_ore> <my_objective> = #registry.result_id chunk_scan.ores.data 
 ```
 
 ## Function Tags
@@ -49,7 +49,7 @@ function #chunk_scan.ores:v1/place_ore
   Executed at the location the ore will be placed.
   Input:
     #gen.id chunk_scan.ores.data -> id of ore to generate. If the id you received from registering you ore matches, place it.
-	Example: execute if score <my_ore> <my_objective> = #gen.id chunk_scan.ores.data run setblock ~ ~ ~ minecraft:dirt
+    Example: execute if score <my_ore> <my_objective> = #gen.id chunk_scan.ores.data run setblock ~ ~ ~ minecraft:dirt
 ```
 
 ```
@@ -59,7 +59,7 @@ function #chunk_scan.ores:v1/custom_biomes
   
   Output:
     storage chunk_scan.ores:generation chunk.biome -> assign to your biome id if the location matches, otherwise make no change.
-	Example: execute if predicate <my_datapack>:location_is_<my_biome> run data modify storage chunk_scan.ores:generation chunk.biome set value "<my_biome>"
+    Example: execute if predicate <my_datapack>:location_is_<my_biome> run data modify storage chunk_scan.ores:generation chunk.biome set value "<my_biome>"
 ```
 
 ## How to use
