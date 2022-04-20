@@ -1,0 +1,71 @@
+# ChunkScan.Ores
+An extension if [ChunkScan](https://github.com/ICY105/ChunkScan) that enables generating custom ores via postgen. This library supports:
+* Place groups of blocks (ores) in the world at random locations, in the specified ranges.
+* Filtering by biome. Supports 3d biomes- filter is based on individual ore vein location. Custom biomes are supported when added via a function tag.
+* Filtering by dimension, including native support for custom dimensions. Supports any world height between -2048 - 2048.
+* Compatible with other worldgen, including custom worldgen (like Terralith) and other postgen methods.
+
+This is an embedded library, so you package it inside your datapack as opposed to having a separate download. Requires [LanternLoad](https://github.com/LanternMC/load) and [ChunkScan](https://github.com/ICY105/ChunkScan) to operate.
+
+## Scoreboards
+These are scoreboard objectives used to represent a value of some kind.
+
+```
+chunk_scan.ores.data
+  Used for math and passing variables between functions.
+```
+
+## Function Calls
+Function calls are called by you to trigger certian events or features.
+
+```
+function chubk_scan.ores:v1/api/register_ore
+  Call to add an ore to the registry.
+  
+  Input:
+    #registry.min_y chunk_scan.ores.data [-2048,2048]: minimum y value to generate at
+    #registry.max_y chunk_scan.ores.data [-2048,2048]: maximum y value to generate at
+    #registry.min_veins chunk_scan.ores.data [0,32]: minimum number of veins to generate per chunk
+    #registry.max_veins chunk_scan.ores.data [0,32]: maximum number of veins to generate per chunk
+    #registry.min_vein_size chunk_scan.ores.data [0,16]: minimum number of ores per vein
+    #registry.max_vein_size chunk_scan.ores.data [0,16]: maximum number of ores per vein
+    #registry.ignore_restrictions chunk_scan.ores.data [0,1]: if 0, ore will only generate in stone like blocks. 1 for anywhere (even air).
+
+    Optional: add this line to adjust dimension and/or biome whitelist/blacklist.
+    Defaults to overworld and no biome restrictions (note- 'minecraft:' prefix is required).
+    data modify storage chunk_scan.ores:registry input set value {dimension:"minecraft:overworld", biomes:["minecraft:plains", "minecraft:desert", ...], biome_blacklist:0b}
+	
+  Output:
+    #registry.result_id chunk_scan.ores.data: Returns -1 if registering ore failed. Otherwise, returns generated ore reg ID num.
+	Save this number to a score. You will need to later to generate your ore 
+	Example: scoreboard players operation <my_ore> <my_objective> = #registry.result_id chunk_scan.ores.data 
+```
+
+## Function Tags
+Functions tags are called by ChunkScan.Ores to inform you an event has happened, like an ore needs to be placed. To use these calls, you must add a function to the tag list.
+
+```
+function #chunk_scan.ores:v1/place_ore
+  Executed at the location the ore will be placed.
+  Input:
+    #gen.id chunk_scan.ores.data -> id of ore to generate. If the id you received from registering you ore matches, place it.
+	Example: execute if score <my_ore> <my_objective> = #gen.id chunk_scan.ores.data run setblock ~ ~ ~ minecraft:dirt
+```
+
+```
+function #chunk_scan.ores:v1/custom_biomes
+  Executed at the location the ore vein will be placed. Check if the location matches the biome (or even other restrictions),
+  then set the output so ChunkScan can identify the biome.
+  
+  Output:
+    storage chunk_scan.ores:generation chunk.biome -> assign to your biome id if the location matches, otherwise make no change.
+	Example: execute if predicate <my_datapack>:location_is_<my_biome> run data modify storage chunk_scan.ores:generation chunk.biome set value "<my_biome>"
+```
+
+## How to use
+1. Install [LanternLoad](https://github.com/LanternMC/load) in your datapack, following its install directions.
+1. Install [ChunkScan](https://github.com/ICY105/ChunkScan) in your datapack, follwoing its install directions
+2. Copy the `ChunkScan.Ores/data/chunk_scan.ores` folder into your data pack
+3. Merge the contents of `ChunkScan.Ores/data/chunk_scan/tags/functions/v2/generate.json` into the file `<your_datapack>/data/chunk_scan/tags/functions/v2/generate.json`
+4. Merge the contents of `ChunkScan.Ores/data/load/tags/functions/load.json` into the file `<your_datapack>/data/load/tags/functions/load.json`
+5. Implement the API as described above.

@@ -9,6 +9,3 @@ scoreboard players set #cons.256 chunk_scan.ores.data 267
 scoreboard players set #utils.lcg_a chunk_scan.ores.data 1630111353
 scoreboard players set #utils.lcg_c chunk_scan.ores.data 1623164762
 scoreboard players set #utils.lcg_m chunk_scan.ores.data 2147483647
-
-#init storage
-data merge storage chunk_scan.ores:registry {overworld:[], the_nether:[], the_end:[], custom:[], input:{}}
