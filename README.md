@@ -64,7 +64,7 @@ function #chunk_scan.ores:v1/custom_biomes
 
 ## How to use
 1. Install [LanternLoad](https://github.com/LanternMC/load) in your datapack, following its install directions.
-1. Install [ChunkScan](https://github.com/ICY105/ChunkScan) in your datapack, follwoing its install directions
+1. Install [ChunkScan](https://github.com/ICY105/ChunkScan) in your datapack, following its install directions
 2. Copy the `ChunkScan.Ores/data/chunk_scan.ores` folder into your data pack
 3. Merge the contents of `ChunkScan.Ores/data/chunk_scan/tags/functions/v2/generate.json` into the file `<your_datapack>/data/chunk_scan/tags/functions/v2/generate.json`
 4. Merge the contents of `ChunkScan.Ores/data/load/tags/functions/load.json` into the file `<your_datapack>/data/load/tags/functions/load.json`
