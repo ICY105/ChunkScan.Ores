@@ -1,4 +1,6 @@
 
+execute if data storage chunk_scan.ores:generation chunk{biome:""} run function chunk_scan.ores:v1.0/utils/get_biome
+
 #check biome id
 data modify storage chunk_scan.ores:registry var set from storage chunk_scan.ores:generation chunk.list[0].biomes[0]
 execute store success score #gen.failed chunk_scan.ores.data run data modify storage chunk_scan.ores:registry var set from storage chunk_scan.ores:generation chunk.biome
