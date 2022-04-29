@@ -71,3 +71,5 @@ function #chunk_scan.ores:v1/custom_biomes
 3. Merge the contents of `ChunkScan.Ores/data/chunk_scan/tags/functions/v2/generate.json` into the file `<your_datapack>/data/chunk_scan/tags/functions/v2/generate.json`
 4. Merge the file contents of `ChunkScan.Ores/data/load/tags/functions/*` into the files at `<your_datapack>/data/load/tags/functions/*`
 5. Implement the API as described above.
+
+For easier mangament of dependencies, check out my project [Datapack Build Manager](https://github.com/ICY105/DatapackBuildManager).
