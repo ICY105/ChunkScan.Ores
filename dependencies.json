@@ -1,7 +1,7 @@
 {
   "namespaces": [
     "chunk_scan",
-	"chunk_scan.ores"
+    "chunk_scan.ores"
   ],
   "dependencies": [
     {
@@ -15,5 +15,5 @@
       "value": "#chunk_scan.ores:load"
     }
   ],
-  "version": "v1.0"
+  "version": "v1.1"
 }
