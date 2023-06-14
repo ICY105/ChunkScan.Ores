@@ -1,2 +1,2 @@
 
-execute if score #chunk_scan.ores.major load.status matches 1 if score #chunk_scan.ores.minor load.status matches 0 run function chunk_scan.ores:v1.1/registry/register_ore
+execute if predicate chunk_scan.ores:v1.1/is_correct_version run function chunk_scan.ores:v1.1/registry/register_ore
