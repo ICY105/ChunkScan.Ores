@@ -7,7 +7,7 @@
         "type": "minecraft:score",
         "target": {
           "type": "minecraft:fixed",
-          "name": "#player_action.major"
+          "name": "#chunk_scan.ores.major"
         },
         "score": "load.status",
         "scale": 1
@@ -25,13 +25,13 @@
   },
   {
     "condition": "minecraft:value_check",
-    "value": 0,
+    "value": 2,
     "range": {
       "min": {
         "type": "minecraft:score",
         "target": {
           "type": "minecraft:fixed",
-          "name": "#player_action.minor"
+          "name": "#chunk_scan.ores.minor"
         },
         "score": "load.status",
         "scale": 1
@@ -40,7 +40,7 @@
         "type": "minecraft:score",
         "target": {
           "type": "minecraft:fixed",
-          "name": "##chunk_scan.ores.minor"
+          "name": "#chunk_scan.ores.minor"
         },
         "score": "load.status",
         "scale": 1

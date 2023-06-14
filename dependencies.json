@@ -13,7 +13,11 @@
     {
       "tag": "load:load",
       "value": "#chunk_scan.ores:load"
+    },
+    {
+      "tag": "load:pre_load",
+      "value": "#chunk_scan.ores:v1/internal/wipe_registry"
     }
   ],
-  "version": "v1.1"
+  "version": "v1.2"
 }
