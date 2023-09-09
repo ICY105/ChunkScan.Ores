@@ -1,8 +1,8 @@
 # ChunkScan.Ores
 An extension if [ChunkScan](https://github.com/ICY105/ChunkScan) that enables generating custom ores via postgen. This library supports:
 * Place groups of blocks (ores) in the world at random locations, in the specified ranges.
-* Filtering by biome. Supports 3d biomes- filter is based on individual ore vein location. Custom biomes are supported when added via a function tag.
-* Filtering by dimension, including native support for custom dimensions. Supports any world height between -2048 - 2048.
+* Filtering by biome. Supports 3d biomes- filter is based on individual ore vein location.
+* Filtering by dimension, including support for custom dimensions. Supports any world height between -2048 - 2048, however world bottom at 0 or -64 are most efficient.
 * Compatible with other worldgen, including custom worldgen (like Terralith) and other postgen methods.
 
 This is an embedded library, so you package it inside your datapack as opposed to having a separate download. Requires [LanternLoad](https://github.com/LanternMC/load) and [ChunkScan](https://github.com/ICY105/ChunkScan) to operate.
