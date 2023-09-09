@@ -13,8 +13,8 @@ $execute store result score #gen.vein_size chunk_scan.ores.data run random value
 $execute if score #gen.vein_size chunk_scan.ores.data matches 0 run scoreboard players set #gen.vein_size chunk_scan.ores.data $(min_vein_size)
 
 # displace
-execute if score #gen.vein_size chunk_scan.ores.data matches 1.. run function chunk_scan.ores:v1.2/generation/displace with storage chunk_scan.ores:temp obj
+execute if score #gen.vein_size chunk_scan.ores.data matches 1.. run function chunk_scan.ores:v1.3/generation/displace with storage chunk_scan.ores:temp obj
 
 # loop
 scoreboard players remove #gen.veins chunk_scan.ores.data 1
-execute if score #gen.veins chunk_scan.ores.data matches 1.. run function chunk_scan.ores:v1.2/generation/generate_veins with storage chunk_scan.ores:generation chunk.list[0]
+execute if score #gen.veins chunk_scan.ores.data matches 1.. run function chunk_scan.ores:v1.3/generation/generate_veins with storage chunk_scan.ores:generation chunk.list[0]
