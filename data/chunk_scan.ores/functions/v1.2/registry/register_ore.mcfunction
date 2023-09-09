@@ -18,26 +18,26 @@
 
 scoreboard players set #registry.result_id chunk_scan.ores.data 0
 
-#checks Y values
+# validate Y values
 execute unless score #registry.min_y chunk_scan.ores.data matches -2048..2048 run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 execute unless score #registry.max_y chunk_scan.ores.data matches -2048..2048 run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
-execute unless score #registry.min_y chunk_scan.ores.data <= #registry.max_y chunk_scan.ores.data run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
+execute unless score #registry.min_y chunk_scan.ores.data < #registry.max_y chunk_scan.ores.data run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 
-#checks veins to generate
+# validate veins to generate
 execute unless score #registry.min_veins chunk_scan.ores.data matches 0..32 run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 execute unless score #registry.max_veins chunk_scan.ores.data matches 0..32 run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 execute unless score #registry.min_veins chunk_scan.ores.data <= #registry.max_veins chunk_scan.ores.data run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 
-#checks vein size
+# validate vein size
 execute unless score #registry.min_vein_size chunk_scan.ores.data matches 0..16 run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 execute unless score #registry.max_vein_size chunk_scan.ores.data matches 0..16 run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 execute unless score #registry.min_vein_size chunk_scan.ores.data <= #registry.max_vein_size chunk_scan.ores.data run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 
-#check placement restriction
+# validate placement restriction
 execute unless score #registry.ignore_restrictions chunk_scan.ores.data matches 0..1 run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 
-#run register function
+# run register function
 execute if score #registry.result_id chunk_scan.ores.data matches 0 run function chunk_scan.ores:v1.2/registry/register_ore_2
 
-#reset temp
+# reset temp
 data modify storage chunk_scan.ores:registry input set value {}
