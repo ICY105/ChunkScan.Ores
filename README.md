@@ -54,16 +54,6 @@ function #chunk_scan.ores:v1/place_ore
     Example: execute if score <my_ore> <my_objective> = #gen.id chunk_scan.ores.data run setblock ~ ~ ~ minecraft:dirt
 ```
 
-```
-function #chunk_scan.ores:v1/custom_biomes
-  Executed at the location the ore vein will be placed. Check if the location matches the
-  biome (or even other restrictions), then set the output so ChunkScan can identify the biome.
-  
-  Output:
-    storage chunk_scan.ores:generation chunk.biome -> assign to your biome id if the location matches, otherwise make no change.
-    Example: execute if predicate <my_datapack>:location_is_<my_biome> run data modify storage chunk_scan.ores:generation chunk.biome set value "<my_biome>"
-```
-
 ## How to use
 1. Install [LanternLoad](https://github.com/LanternMC/load) in your datapack, following its install directions.
 1. Install [ChunkScan](https://github.com/ICY105/ChunkScan) in your datapack, following its install directions
