@@ -33,7 +33,7 @@ function chunk_scan.ores:v1/api/register_ore
 
     Optional: add this line to adjust dimension and/or biome whitelist/blacklist.
     Defaults to overworld and no biome restrictions (note- 'minecraft:' prefix is required).
-    data modify storage chunk_scan.ores:registry input set value {dimension:"minecraft:overworld", biomes:["minecraft:plains", "minecraft:desert", ...], biome_blacklist:0b}
+    data modify storage chunk_scan.ores:registry input set value {dimension:"minecraft:overworld", biome:"<biome or biome tag>", biome_blacklist:0b}
 	
   Output:
     #registry.result_id chunk_scan.ores.data: Returns -1 if registering ore failed.
