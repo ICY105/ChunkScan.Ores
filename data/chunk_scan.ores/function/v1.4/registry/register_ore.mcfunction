@@ -41,7 +41,7 @@ execute if data storage chunk_scan.ores:registry input.biomes run tellraw @a {"c
 execute if data storage chunk_scan.ores:registry input.biomes run scoreboard players set #registry.ore_id chunk_scan.ores.data -1
 
 # run register function
-execute if score #registry.result_id chunk_scan.ores.data matches 0 run function chunk_scan.ores:v1.3/registry/register_ore_2
+execute if score #registry.result_id chunk_scan.ores.data matches 0 run function chunk_scan.ores:v1.4/registry/register_ore_2
 
 # reset temp
 data modify storage chunk_scan.ores:registry input set value {}

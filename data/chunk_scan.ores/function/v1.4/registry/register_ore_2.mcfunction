@@ -28,7 +28,7 @@ execute store result storage chunk_scan.ores:registry temp.max_vein_size int 1 r
 execute store result storage chunk_scan.ores:registry temp.ignore_restrictions int 1 run scoreboard players get #registry.ignore_restrictions chunk_scan.ores.data
 
 # register ore to dimension dimension
-function chunk_scan.ores:v1.3/registry/register_ore_3 with storage chunk_scan.ores:registry temp
+function chunk_scan.ores:v1.4/registry/register_ore_3 with storage chunk_scan.ores:registry temp
 
 # cleanup
 data remove storage chunk_scan.ores:registry temp
